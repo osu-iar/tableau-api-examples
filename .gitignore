@@ -1,0 +1,9 @@
+# Configuration
+**/.env
+
+# Common IDE directories
+.idea/*
+.vscode/*
+
+# Output
+**/out.csv
