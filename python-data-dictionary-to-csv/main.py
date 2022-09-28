@@ -16,7 +16,7 @@ def connect_to_tableau() -> TSC.Server:
         os.getenv('tableau_token_name'),
         os.getenv('tableau_token_value')
     )
-    server: TSC.Server = TSC.Server('https://analytics.oregonstate.edu', use_server_version=True)
+    server: TSC.Server = TSC.Server(os.getenv('tableau_server_url'), use_server_version=True)
 
     server.auth.sign_in(auth)
     return server
