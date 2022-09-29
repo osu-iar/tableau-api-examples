@@ -7,6 +7,8 @@
 
 # Output
 **/out.csv
+**/*.hyper
+**/*.log
 
 # Virtual Environments
 **/venv/*
