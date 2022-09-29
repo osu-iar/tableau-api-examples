@@ -1,6 +1,6 @@
 # python-publish-csv-to-tableau
 
-This example converts a local CSV file to a `.hyper` file which is then uploaded as a published data source.
+To upload a dataset as an extract on Tableau Server, it must be converted to a `.hyper` file first. This example converts the CSV file, `example.csv`, to a hyper file then uploads that file to the project specified within the command line arguments.
 
 ## Running the Example
 
