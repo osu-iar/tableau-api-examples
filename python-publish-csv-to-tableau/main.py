@@ -62,7 +62,7 @@ def find_project_to_publish_to(server: TSC.Server, project_name: str) -> TSC.Pro
         )
     )
 
-    matching_projects: List[TSC.ViewItem]
+    matching_projects: List[TSC.ProjectItem]
     pagination_item: TSC.PaginationItem
     matching_projects, pagination_item = server.projects.get(req_options)
 
