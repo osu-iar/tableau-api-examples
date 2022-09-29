@@ -93,12 +93,15 @@ def main():
     # choose publishing mode - Overwrite, Append, or CreateNew
     publish_mode = TSC.Server.PublishMode.Overwrite
 
-    new_datasource = TSC.DatasourceItem(project_id=project.id)
+    new_datasource: TSC.DatasourceItem = TSC.DatasourceItem(project_id=project.id)
     new_datasource = server_client.datasources.publish(
         new_datasource,
         'csv-to-hyper-example.hyper',
         publish_mode,
     )
+
+    print(f'Datasource published to folder: {new_datasource.project_name}')
+    print(f'New datasource ID: {new_datasource.id}')
 
 
 if __name__ == '__main__':
