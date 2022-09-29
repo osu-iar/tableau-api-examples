@@ -7,3 +7,6 @@
 
 # Output
 **/out.csv
+
+# Virtual Environments
+**/venv/*

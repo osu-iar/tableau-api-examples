@@ -25,9 +25,27 @@ flowchart LR
 
 ## Getting Started
 
-Before getting started, you will need to obtain an API token from Tableau Server. Please see the [Tableau documentation](https://help.tableau.com/current/pro/desktop/en-us/useracct.htm#create-and-revoke-personal-access-tokens) for further information on obtaining your authentication token. Authentication with your username and password **is not supported** due to institution MFA requirements.
+### Create an API Token
 
-Once you have your authentication token, please see the README.md file found in each example's subfolder.
+Before getting started, you will need to obtain an API token from Tableau Server. 
+
+1. Go to Tableau Server and click **My Account Settings**.
+2. Under the **Settings** tab, scroll down to **Personal Access Tokens**.
+3. Give your token a name and click **Create new token**.
+4. Copy the Token Secret to your clipboard. You won't be able to access this secret after you close the window. Treat this Token Secret like a password, and don't share it with anyone.
+
+Please see the [Tableau documentation](https://help.tableau.com/current/pro/desktop/en-us/useracct.htm#create-and-revoke-personal-access-tokens) for further information on obtaining your authentication token. Authentication with your username and password is not supported due to institution MFA requirements.
+
+Once you have your authentication token, see the `README.md` file found in each example's subfolder for instructions on how to run each script.
+
+### Create a Virtual Environment
+
+You may wish to create a [Python virtual environment](https://docs.python.org/3/tutorial/venv.html) before installing requirements. This avoids package dependency conflicts between code bases.
+
+### Install Example Requirements
+Python requirements for each example can be installed [using pip](https://packaging.python.org/en/latest/tutorials/installing-packages/#requirements-files) with the following command:
+
+`pip install -r requirements.txt`
 
 ## Current Examples
 
