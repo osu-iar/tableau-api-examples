@@ -52,6 +52,31 @@ def connect_to_tableau() -> TSC.Server:
     return server
 
 
+def find_project_to_publish_to(server: TSC.Server, project_name: str) -> TSC.ProjectItem:
+    req_options: TSC.RequestOptions = TSC.RequestOptions()
+    req_options.filter.add(
+        TSC.Filter(
+            TSC.RequestOptions.Field.Name,
+            TSC.RequestOptions.Operator.Equals,
+            project_name
+        )
+    )
+
+    matching_projects: List[TSC.ViewItem]
+    pagination_item: TSC.PaginationItem
+    matching_projects, pagination_item = server.projects.get(req_options)
+
+    # Check how many items were found
+    if pagination_item.total_available == 0:
+        print('Error: No matching project found.')
+        sys.exit(1)
+    elif pagination_item.total_available > 1:
+        print('Warning: Multiple projects found. Going with the first found view.')
+
+    project = matching_projects[0]
+    return project
+
+
 def main():
     # Start by converting the CSV file into a hyper extract
     with HyperProcess(telemetry=Telemetry.DO_NOT_SEND_USAGE_DATA_TO_TABLEAU) as hyper:
@@ -59,9 +84,21 @@ def main():
             my_table: TableDefinition = create_table_in_hyper_file(conn)
             insert_csv_into_hyper_file(conn, my_table)
 
-    # upload
+    # Generate server_client
     server_client: TSC.Server = connect_to_tableau()
-    server_client.datasources.publish()
+
+    # get the project to deploy our extract to
+    project: TSC.ProjectItem = find_project_to_publish_to(server_client, sys.argv[1])
+
+    # choose publishing mode - Overwrite, Append, or CreateNew
+    publish_mode = TSC.Server.PublishMode.Overwrite
+
+    new_datasource = TSC.DatasourceItem(project_id=project.id)
+    new_datasource = server_client.datasources.publish(
+        new_datasource,
+        'csv-to-hyper-example.hyper',
+        publish_mode,
+    )
 
 
 if __name__ == '__main__':
