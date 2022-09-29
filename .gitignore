@@ -7,3 +7,5 @@
 
 # Output
 **/out.csv
+**/*.hyper
+**/*.log
