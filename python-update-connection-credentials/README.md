@@ -4,7 +4,7 @@ This example polls Tableau Server for all connection items visible to the authen
 
 {% warning %}
 
-Due to limitations of Tableau Server, you cannot update the credentials of a given connection **unless the authenticated user owns the item**. Even if the authenticated user has admin rights to the resources, attempting to update the resource will result in a failure.
+**Warning:** Due to limitations of Tableau Server, you cannot update the credentials of a given connection **unless the authenticated user owns the item**. Even if the authenticated user has admin rights to the resources, attempting to update the resource will result in a failure.
 
 {% endwarning %}
 
