@@ -1,14 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/python-data-dictionary-to-csv"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 5
-    assignees:
-      - jacobm001
-  - package-ecosystem: "pip"
-    directory: "/python-publish-csv-to-tableau"
+    directories: 
+      - "/python-data-dictionary-to-csv"
+      - "/python-publish-csv-to-tableau"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 5
