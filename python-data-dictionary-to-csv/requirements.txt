@@ -1,2 +1,2 @@
-tableauserverclient==0.37
+tableauserverclient==0.38
 python-dotenv==1.1.0
