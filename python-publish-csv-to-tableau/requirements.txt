@@ -1,3 +1,3 @@
 tableauserverclient==0.38
 python-dotenv==1.1.0
-tableauhyperapi==0.0.22106
+tableauhyperapi==0.0.22502
